@@ -1,8 +1,9 @@
 import json
+from rich import print
 from random import randrange
 def main():
 
-    print("Добро пожаловать в числовую угадайку!")
+    print("[bold green]Добро пожаловать в числовую угадайку[/bold green]!")
     history = []
     while True:
         try:
