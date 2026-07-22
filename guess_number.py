@@ -1,11 +1,14 @@
-import json
-import history
-from rich import print
 from random import randrange
+
+from rich import print
+
+from history import load_history, show_history, save_history
+
+
 def main():
 
     print("[bold green]Добро пожаловать в числовую угадайку[/bold green]!")
-    game_history = history.load_history()
+    game_history = load_history()
     while True:
         try:
             border = int(input("До какого числа будем загадывать? "))
@@ -21,8 +24,8 @@ def main():
             continue
         if not get_ask():
             print("Спасибо что сыграли, еще увидимся...")
-            history.show_history(game_history)
-            history.save_history(game_history)
+            save_history(game_history)
+            show_history(game_history)
             break
 def play_game(border,game_number):
 
@@ -66,8 +69,8 @@ def is_border_valid(border):
 
 
 
-def get_next_game_number(history):
-    return len(history) + 1
+def get_next_game_number(game_history):
+    return len(game_history) + 1
 
 
 
